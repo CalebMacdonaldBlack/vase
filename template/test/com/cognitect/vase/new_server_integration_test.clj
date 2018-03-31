@@ -53,7 +53,7 @@
   (let [app-name "test-app"
         full-app-name (.getPath (io/file tempdir app-name))]
     (println (sh/with-sh-dir project-dir (sh/sh lein "install")))
-    (println (sh/with-sh-dir tempdir (sh/sh lein "new" "vase" app-name "--template")))
+    (println (sh/with-sh-dir tempdir (sh/sh lein "new" "vase" app-name "--snapshot")))
     (println "Created app at" full-app-name)
     (is (.exists (io/file full-app-name "project.clj")))
     (is (.exists (io/file full-app-name "README.md")))
