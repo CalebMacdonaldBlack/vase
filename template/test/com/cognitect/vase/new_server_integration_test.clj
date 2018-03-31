@@ -18,10 +18,7 @@
 
 (def lein (or (System/getenv "LEIN_CMD") "lein"))
 
-(def project-dir
-  (->
-   (ClassLoader/getSystemResource *file*)
-   io/file .getParent io/file .getParent))
+(def project-dir (io/file "."))
 
 ;; This code was heavily inspired by Overtone's version, thanks!
 ;; https://github.com/overtone/overtone/blob/e3de1f7ac59af7fa3cf75d696fbcfc2a15830594/src/overtone/helpers/file.clj#L360
